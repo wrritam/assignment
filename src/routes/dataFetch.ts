@@ -54,6 +54,10 @@ const fetchAndStoreData = async () => {
 
 fetchAndStoreData();
 
+// updating every 30 minutes
+
+setInterval(fetchAndStoreData, 1800000);
+
 router.get("/getData", async (req: Request, res: Response) => {
   try {
     const datas = await prisma.data.findMany({});

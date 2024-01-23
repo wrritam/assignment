@@ -25,8 +25,14 @@ const fetchAndStoreData = async () => {
     );
     const tickers = response.data;
 
+    // sorting the tickers with respect to the buy price
+
+    const sortedTickers = Object.values(tickers).sort(
+      (a, b) => parseFloat(b.buy) - parseFloat(a.buy)
+    );
+
     // Top 10 Data
-    const topResults = Object.values(tickers).slice(0, 10);
+    const topResults = sortedTickers.slice(0, 10);
 
     // Clear the previous
 
@@ -46,9 +52,9 @@ const fetchAndStoreData = async () => {
       });
     }
 
-    console.log("Data successfully fetched and stored in the database.");
+    console.log("Data successfully collected and stored in the database.");
   } catch (error) {
-    console.error("Error fetching and storing data:", (error as Error).message);
+    console.error("Unexpected error occured: ", (error as Error).message);
   }
 };
 

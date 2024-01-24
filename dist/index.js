@@ -10,11 +10,11 @@ const app = (0, express_1.default)();
 var cors = require("cors");
 app.use(cors());
 app.use(express_1.default.json());
-const port = 9000;
+const PORT = process.env.PORT || 4000;
 app.get("/", (req, res) => {
     res.send("Backend is live.");
 });
-app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
 app.use("/api", dataFetch_1.default);

@@ -2,8 +2,9 @@
   "name": "assignment",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "./src/index.ts",
+    "start": "nodemon ./dist/index.js",
     "dev": "nodemon ./src/index.ts"
   },
   "keywords": [],

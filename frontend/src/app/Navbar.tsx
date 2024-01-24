@@ -13,8 +13,8 @@ import { Switch } from "@/components/Switch";
 import { Link } from "react-router-dom";
 
 interface DarkModeProps {
-  checked: boolean,
-  setChecked: React.Dispatch<React.SetStateAction<boolean>>
+  checked: boolean;
+  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Navbar: React.FC<DarkModeProps> = ({ checked, setChecked }) => {
@@ -26,7 +26,9 @@ const Navbar: React.FC<DarkModeProps> = ({ checked, setChecked }) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCountdown((prevCountdown) => (prevCountdown === 0 ? initialCountdown : prevCountdown - 1));
+      setCountdown((prevCountdown) =>
+        prevCountdown === 0 ? initialCountdown : prevCountdown - 1
+      );
     }, 1000);
     return () => clearInterval(intervalId);
   }, [initialCountdown]);
@@ -56,7 +58,13 @@ const Navbar: React.FC<DarkModeProps> = ({ checked, setChecked }) => {
       <div className="flex gap-5 phone:text-sm tablet:text-base mx-auto">
         <Popover>
           <PopoverTrigger asChild className="flex my-auto gap-2">
-            <button className={`justify-between uppercase ${checked ? 'bg-[#2E3241] shadow-[#2E3241]' : 'bg-neutral-100 shadow-neutral-200'} shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-xl px-4 py-2`}>
+            <button
+              className={`justify-between uppercase ${
+                checked
+                  ? "bg-[#2E3241] shadow-[#2E3241]"
+                  : "bg-neutral-100 shadow-neutral-200"
+              } shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-xl px-4 py-2`}
+            >
               INR
               <CaretSortIcon className="my-auto w-5 h-5" />
             </button>
@@ -64,7 +72,13 @@ const Navbar: React.FC<DarkModeProps> = ({ checked, setChecked }) => {
         </Popover>
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild className="flex my-auto gap-2">
-            <button className={`justify-between uppercase ${checked ? 'bg-[#2E3241] shadow-[#2E3241]' : 'bg-neutral-100 shadow-neutral-200'} shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-xl px-4 py-2`}>
+            <button
+              className={`justify-between uppercase ${
+                checked
+                  ? "bg-[#2E3241] shadow-[#2E3241]"
+                  : "bg-neutral-100 shadow-neutral-200"
+              } shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-xl px-4 py-2`}
+            >
               {value}
               <CaretSortIcon className="my-auto w-5 h-5" />
             </button>
@@ -97,14 +111,21 @@ const Navbar: React.FC<DarkModeProps> = ({ checked, setChecked }) => {
         </Popover>
         <Popover>
           <PopoverTrigger asChild className="flex my-auto gap-2">
-            <Link to="https://wazirx.com/invite/sp7pvbt6" className={`justify-between uppercase ${checked ? 'bg-[#2E3241] shadow-[#2E3241]' : 'bg-neutral-100 shadow-neutral-200'} shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-xl px-4 py-2`}>
+            <Link
+              to="https://wazirx.com/invite/sp7pvbt6"
+              className={`justify-between uppercase ${
+                checked
+                  ? "bg-[#2E3241] shadow-[#2E3241]"
+                  : "bg-neutral-100 shadow-neutral-200"
+              } shadow-[inset_0px_0px_12px_rgba(0,0,0,0.25)] rounded-xl px-4 py-2`}
+            >
               BUY BTC
             </Link>
           </PopoverTrigger>
         </Popover>
       </div>
       <div className="flex gap-5 m-auto">
-        <p className="my-auto bg-neutral-50 rounded-full text-[#6BC9CB]">{countdown}</p>
+        <p className="my-auto rounded-full text-[#6BC9CB]">{countdown}</p>
         <button className="flex gap-3 bg-[#3DC6C1] px-5 py-2 rounded-xl">
           <img
             src="/icons/paper-plane.svg"
